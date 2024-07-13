@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, SafeAreaView, View, Platform, TextInput, Button, Image } from 'react-native';
+import { StyleSheet, SafeAreaView, View, Platform, TextInput, Button, Image, Text, TouchableOpacity } from 'react-native';
 
 function LoginScreen(props) {
     const [ email, setEmail ] = useState(''); 
@@ -32,6 +32,10 @@ function LoginScreen(props) {
                     autoCapitalize="none"
                     autoCorrect={false}
                 />
+                <TouchableOpacity style={styles.buttons}>
+                    <Text style={{color: 'white', fontSize: 18}}>Entrar</Text>
+                </TouchableOpacity>
+                <Text style={styles.sign}>Não tem uma conta? Cadastre-se!</Text>
             </View>
         </SafeAreaView>
     );
@@ -62,6 +66,22 @@ const styles = StyleSheet.create({
     padding: 20,
     borderRadius: 12, 
     marginTop: 30,
+  }, 
+  buttons: {
+    backgroundColor: '#52b5fd',
+    width: '100%', 
+    height: 60,
+    borderRadius: 12,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 30
+  },
+  sign: { 
+    width: '100%',
+    textAlign: 'center',
+    color: '#52b5fd', 
+    textDecorationLine: 'underline',
+    marginTop: 30
   }
 })
 
