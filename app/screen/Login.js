@@ -1,18 +1,34 @@
 import React, { useState } from 'react';
-import { StyleSheet, SafeAreaView, View, Platform, TextInput, Button } from 'react-native';
+import { StyleSheet, SafeAreaView, View, Platform, TextInput, Button, Image } from 'react-native';
 
 function LoginScreen(props) {
     const [ email, setEmail ] = useState(''); 
+    const [ password, setPassword ] = useState('');
 
     return (
         <SafeAreaView style={styles.container}>
-            <View style={styles.inputs}>
+            <View style={styles.main}>
+                <Image
+                    source={require('../assets/track.png')}
+                    style={{ width: 220, height: 200, alignSelf: "center", objectFit: "cover" }}
+                />
                 <TextInput 
+                    style={styles.inputs}
                     type="email"
                     placeholder="Email"
                     value={email}
                     onChangeText={(text) => setEmail(text)}
                     keyboardType="email-address"
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                />
+                <TextInput 
+                    style={styles.inputs}
+                    type="password"
+                    placeholder="Password"
+                    value={password}
+                    onChangeText={(text) => setPassword(text)}
+                    secureTextEntry={true}
                     autoCapitalize="none"
                     autoCorrect={false}
                 />
@@ -27,17 +43,25 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     paddingTop: Platform.OS === "android" ? 20 : 0,
     flexDirection: "row",
-    //justifyContent: "center",
+    justifyContent: "center",
     alignItems: "center",
     flexWrap: "wrap",
     alignContent: "center" //tem que usar no wrap pra centralizar verticalmente
   },
-
-  inputs: {
-    flex: 1, 
-    flexDirection: "row",
+  main: {
+    width: '80%',
+    display: "flex",
+    flexDirection: "column",
     justifyContent: "center", 
     alignContent: "center"
+  },
+  inputs: {
+    width: '100%', 
+    height: 60,
+    backgroundColor: "#F2F2F2",
+    padding: 20,
+    borderRadius: 12, 
+    marginTop: 30,
   }
 })
 
