@@ -1,14 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, Dimensions, TouchableHighlight, Platform, View, Alert, Button, SafeAreaView } from 'react-native';
+import { StyleSheet, Text, Dimensions, TouchableHighlight, View, Alert, Button, SafeAreaView } from 'react-native';
 import { useDimensions, useDeviceOrientation } from "@react-native-community/hooks";
-import WelcomeScreen from './app/screen/WelcomeScreen';
+//import WelcomeScreen from './app/screen/WelcomeScreen';
+import LoginScreen from "./app/screen/Login";
 
 export default function App() {
   const { landscape } = useDeviceOrientation();
   //console.log(Dimensions.get("screen").width);
 
   return (
-    <WelcomeScreen />
+    <LoginScreen />
     // <SafeAreaView style={[styles.container, containerStyle]}>
     //   {/* <Text numberOfLines={2} onPress={() => console.log("Clicou")}>Hello World</Text> */}
     //   {/* <TouchableHighlight> */}
@@ -63,7 +64,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    paddingTop: Platform.OS === "android" ? 20 : 0,
+    //paddingTop: Platform.OS === "android" ? 20 : 0,
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
