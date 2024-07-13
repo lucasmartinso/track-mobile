@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, SafeAreaView, View, Platform, TextInput, Button, Image, Text, TouchableOpacity } from 'react-native';
 
-function LoginScreen(props) {
+function LoginScreen({ navigation }) {
     const [ email, setEmail ] = useState(''); 
     const [ password, setPassword ] = useState('');
 
@@ -32,7 +32,7 @@ function LoginScreen(props) {
                     autoCapitalize="none"
                     autoCorrect={false}
                 />
-                <TouchableOpacity style={styles.buttons}>
+                <TouchableOpacity style={styles.buttons} onPress={() => navigation.navigate('signup')}>
                     <Text style={{color: 'white', fontSize: 18}}>Entrar</Text>
                 </TouchableOpacity>
                 <Text style={styles.sign}>Não tem uma conta? Cadastre-se!</Text>

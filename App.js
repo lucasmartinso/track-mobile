@@ -1,15 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StyleSheet, Text, Dimensions, TouchableHighlight, View, Alert, Button, SafeAreaView } from 'react-native';
-import { useDimensions, useDeviceOrientation } from "@react-native-community/hooks";
-//import WelcomeScreen from './app/screen/WelcomeScreen';
+
 import LoginScreen from "./app/screen/Login";
 
-export default function App() {
-  const { landscape } = useDeviceOrientation();
-  //console.log(Dimensions.get("screen").width);
+const Stack = createNativeStackNavigator(); 
 
+export default function App() {
   return (
-    <LoginScreen />
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName='home'>
+        <Stack.Screen name='home' component={LoginScreen} />
+        <Stack.Screen name='signup' component={LoginScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
     // <SafeAreaView style={[styles.container, containerStyle]}>
     //   {/* <Text numberOfLines={2} onPress={() => console.log("Clicou")}>Hello World</Text> */}
     //   {/* <TouchableHighlight> */}
